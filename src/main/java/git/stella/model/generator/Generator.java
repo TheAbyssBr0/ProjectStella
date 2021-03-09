@@ -58,7 +58,7 @@ public class Generator {
             container = new CharacterContainer(key.getByte());
             hash = generateHash(service, len, num, variation);
             for(int i = 0, index; i < len; ++i) {
-                index = abs(hash[i * 2]) | abs(hash[i * 2 | 1]) << 7;
+                index = abs(hash[i * 2]) | abs(hash[i * 2 + 1]) << 7;
                 pass.append(container.nextChar(index));
             }
 
