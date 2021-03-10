@@ -6,9 +6,8 @@ import git.stella.model.characters.CharacterContainer;
 import git.stella.model.user.User;
 import git.stella.model.utils.KeyContainer;
 
+import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-
-import static java.lang.Math.abs;
 
 /**
  * Generates the passwords using argon2di hashing algorithm
@@ -39,6 +38,19 @@ public class Generator {
         return argon2.rawHash(1, 128*1024, 1, user.getInfo().toCharArray(), salt);
     }
 
+    /**
+     * Helper function for getPassword. Converts 2 bytes into an integer by concatenation
+     * @param b1 the first byte
+     * @param b2 the second byte
+     * @return an integer resulting from concatenation of the input bytes
+     */
+    private int intConvert(byte b1, byte b2) {
+        byte[] arr = new byte[4];
+        arr[0] = 0; arr[1] = 0;
+        arr[2] = b1; arr[3] = b2;
+        ByteBuffer intBuff = ByteBuffer.wrap(arr);
+        return intBuff.getInt();
+    }
 
     /**
      * Returns password based on given parameters
@@ -58,7 +70,7 @@ public class Generator {
             container = new CharacterContainer(key.getByte());
             hash = generateHash(service, len, num, variation);
             for(int i = 0, index; i < len; ++i) {
-                index = abs(hash[i * 2]) | abs(hash[i * 2 + 1]) << 7;
+                index = intConvert(hash[i * 2 + 1], hash[i * 2]);
                 pass.append(container.nextChar(index));
             }
 
