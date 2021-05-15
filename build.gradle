@@ -1,7 +1,5 @@
 plugins {
     id 'java'
-    id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 group 'git.stella'
@@ -12,18 +10,12 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    implementation 'de.mkammerer:argon2-jvm-nolibs:2.9.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // implementation group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.45'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
 }
 
 test {
     useJUnitPlatform()
 }
-
-javafx {
-    version = "15.0.1"
-    modules = [ 'javafx.controls' ]
-}
-
-mainClassName = "git.stella.Main"

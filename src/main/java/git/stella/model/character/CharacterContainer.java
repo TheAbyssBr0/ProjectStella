@@ -1,4 +1,4 @@
-package git.stella.model.characters;
+package git.stella.model.character;
 
 /**
  * Used to return character at calculated index

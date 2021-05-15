@@ -1,4 +1,4 @@
-package git.stella.model.characters;
+package git.stella.model.character;
 
 /**
  * Calculates offset based on calculated index and key value

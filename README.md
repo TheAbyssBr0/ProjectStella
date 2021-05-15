@@ -1,2 +1,0 @@
-# ProjectStella
-Redesigned project lucy

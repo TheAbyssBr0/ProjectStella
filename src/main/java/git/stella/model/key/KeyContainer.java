@@ -1,4 +1,4 @@
-package git.stella.model.utils;
+package git.stella.model.key;
 
 public class KeyContainer {
 

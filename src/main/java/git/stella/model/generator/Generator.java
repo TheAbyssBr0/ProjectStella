@@ -1,13 +1,14 @@
 package git.stella.model.generator;
 
-import de.mkammerer.argon2.Argon2Advanced;
-import de.mkammerer.argon2.Argon2Factory;
-import git.stella.model.characters.CharacterContainer;
+import git.stella.model.character.CharacterContainer;
+import git.stella.model.key.KeyContainer;
 import git.stella.model.user.User;
-import git.stella.model.utils.KeyContainer;
+import org.bouncycastle.crypto.generators.Argon2BytesGenerator;
+import org.bouncycastle.crypto.params.Argon2Parameters;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 /**
  * Generates the passwords using argon2di hashing algorithm
@@ -32,10 +33,22 @@ public class Generator {
      * @return the byte array containing the argon 2di hash
      */
     private byte[] generateHash(String service, int len, int num, int var) {
+        /* from:
+        https://github.com/bcgit/bc-java/blob/master/core/src/test/java/org/bouncycastle/crypto/test/Argon2Test.java
+         */
         byte[] salt = (service + num + var).getBytes(StandardCharsets.US_ASCII);
-        Argon2Advanced argon2 = Argon2Factory.createAdvanced(Argon2Factory.Argon2Types.ARGON2id, salt.length,
-                len*2);
-        return argon2.rawHash(1, 128*1024, 1, user.getInfo().toCharArray(), salt);
+        Argon2Parameters.Builder builder = new Argon2Parameters.Builder(Argon2Parameters.ARGON2_id)
+                .withVersion(Argon2Parameters.ARGON2_id)
+                .withIterations(3)
+                .withMemoryPowOfTwo(15)
+                .withParallelism(2)
+                .withSalt(salt);
+
+        Argon2BytesGenerator gen = new Argon2BytesGenerator();
+        gen.init(builder.build());
+        byte[] result = new byte[len * 2];
+        gen.generateBytes(user.getInfo().getBytes(StandardCharsets.US_ASCII), result, 0, result.length);
+        return result;
     }
 
     /**
