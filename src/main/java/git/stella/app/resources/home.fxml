@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #4d4d4d;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="git.stella.app.HomeController">
+   <children>
+      <Label id="welcomeLabel" fx:id="welcomeLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="478.0" layoutY="28.0" prefHeight="32.0" prefWidth="160.0" stylesheets="@home.css" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="logoutButton" layoutX="540.0" layoutY="338.0" onAction="#logout" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: black;" styleClass="homeButtons" stylesheets="@home.css" text="Log Out" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="generateButton" disable="true" layoutX="540.0" layoutY="170.0" onAction="#generate" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #3467eb;" styleClass="homeButtons" stylesheets="@home.css" text="Generate" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane prefHeight="400.0" prefWidth="225.0" style="-fx-background-color: #404040;">
+         <children>
+            <JFXTextField fx:id="serviceText" layoutX="30.0" layoutY="115.0" prefHeight="39.0" prefWidth="166.0" stylesheets="@home.css" promptText="Service..." styleClass="jfx-text-field" />
+            <JFXSlider id="comfortSlider" fx:id="lengthSlider" layoutX="41.0" layoutY="227.0" stylesheets="@home.css" />
+            <JFXSlider id="comfortSlider" fx:id="numSlider" layoutX="41.0" layoutY="338.0" stylesheets="@home.css" />
+            <Label layoutX="41.0" layoutY="246.0" prefHeight="17.0" prefWidth="106.0" text="Password Length" textFill="WHITE" />
+            <Label layoutX="41.0" layoutY="355.0" text="Password Number" textFill="WHITE" />
+<!--            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="74.0" prefWidth="225.0" text="SERVICE" textFill="WHITE">-->
+<!--               <font>-->
+<!--                  <Font size="29.0" />-->
+<!--               </font>-->
+<!--            </Label>-->
+         </children>
+      </AnchorPane>
+      <Accordion layoutX="293.0" layoutY="250.0" style="-fx-background-color: #4d4d4d; -fx-border-radius: 2px; -fx-border-color: #4d4d4d;" />
+    <TitledPane expanded="false" layoutX="293.0" layoutY="170.0" prefHeight="152.0" prefWidth="92.0" style="-fx-background-color: #4d4d4d; -fx-border-radius: 2px; -fx-border-color: #4d4d4d;" stylesheets="@home.css" text="Options" textFill="WHITE">
+      <content>
+        <AnchorPane fx:id="optPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #404040; -fx-border-radius: 5; -fx-border-color: #4d4d4d;" styleClass="anchorpane" stylesheets="@home.css">
+               <children>
+                  <JFXCheckBox fx:id="optLower" checkedColor="#3467eb" layoutX="8.0" layoutY="14.0" prefHeight="18.0" prefWidth="98.0" text="a-z" textFill="WHITE" />
+                  <JFXCheckBox fx:id="optUpper" checkedColor="#3467eb" layoutX="8.0" layoutY="38.0" text="A-Z" textFill="WHITE" />
+                  <JFXCheckBox fx:id="optNum" checkedColor="#3467eb" layoutX="8.0" layoutY="61.0" text="0-9" textFill="WHITE" />
+                  <JFXCheckBox fx:id="optSym" checkedColor="#3467eb" layoutX="8.0" layoutY="84.0" text="Symbols" textFill="WHITE" />
+               </children>
+               <effect>
+                  <Glow />
+               </effect>
+            </AnchorPane>
+      </content>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+    </TitledPane>
+      <JFXPasswordField fx:id="passwordArea" layoutX="304.0" layoutY="116.0" prefHeight="39.0" prefWidth="334.0" stylesheets="@home.css" styleClass="jfx-password-field" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #4d4d4d;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="git.stella.app.LoginController">
+   <children>
+      <Label id="a" layoutX="206.0" layoutY="125.0" prefHeight="21.0" prefWidth="112.0" styleClass="loginLabel" stylesheets="login.css" text="Username" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font></Label>
+      <Label layoutX="206.0" layoutY="206.0" prefHeight="21.0" prefWidth="112.0" styleClass="loginLabel" stylesheets="login.css" text="Password" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField id="userField" fx:id="userField" layoutX="206.0" layoutY="158.0" prefHeight="25.0" prefWidth="276.0" promptText="Your username here..." style="-fx-background-color: #404040; -fx-text-fill: #ffffff;" />
+      <PasswordField fx:id="passwordField" layoutX="206.0" layoutY="234.0" prefHeight="25.0" prefWidth="276.0" promptText="Your password here..." style="-fx-background-color: #404040; -fx-text-fill: #ffffff;" />
+      <JFXButton fx:id="loginButton" disable="true" layoutX="377.0" layoutY="292.0" onAction="#onClick" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: #3467eb;" styleClass="loginButton" text="Login" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+   </children>
+</AnchorPane>

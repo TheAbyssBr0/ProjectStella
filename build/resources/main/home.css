@@ -1,0 +1,53 @@
+#welcomeLabel {
+    -fx-text-alignment: right;
+}
+
+#comfortSlider .thumb{-fx-background-color: #1354cb!important;}
+
+.jfx-slider > .colored-track {
+    -fx-background-color: #1354cb;
+}
+
+/* Styling the animated thumb */
+.jfx-slider > .animated-thumb {
+    -fx-background-color: #1354cb;
+}
+
+/* Styling the slider value text inside animated thumb */
+.jfx-slider .slider-value {
+    -fx-fill: white;
+    -fx-stroke: white;
+}
+
+.titled-pane .content {
+    -fx-border-width: 0;
+}
+
+.titled-pane .title {
+    -fx-background-color: transparent;
+}
+
+.titled-pane .anchorpane {
+    -fx-border-radius: 2px;
+}
+
+.jfx-text-field, .jfx-password-field {
+    -fx-text-fill: white;
+    -fx-border-radius: 20px;
+    -fx-border-color: #CCCCCC;
+    -fx-padding: 0.333333em 1em 0.333333em 1em;
+    -fx-prompt-text-fill: gray;
+    -fx-background-radius: 20px;
+}
+
+.jfx-text-field {
+    -fx-background-color: #3d3d3d;
+}
+
+.jfx-password-field {
+    -fx-background-color: #404040;
+}
+
+.jfx-text-field > .input-line, .input-focused-line {
+    -fx-background-color: transparent;
+}
