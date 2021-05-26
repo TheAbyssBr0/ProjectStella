@@ -7,11 +7,11 @@ import git.stella.model.user.User;
 public class Driver {
     public static void main(String[] args) {
         // inline tester
-        String username = "Security maniac";
-        String password = "1234password";
-        String service = "4chan";
-        KeyContainer keyContainer = new KeyContainer(true, true, true, true);
-        int len = 32;
+        String username = "howareyou";
+        String password = "1234";
+        String service = "facebook";
+        KeyContainer keyContainer = new KeyContainer(false, true, false, false);
+        int len = 16;
         int num = 1;
 
         User user = new User(username, password);
